@@ -5,7 +5,7 @@
             <?php
             $image = (object) $image;
 
-            $this->attributes['alt'] = $image->subline;
+            $this->attributes->alt = $image->subline;
 
             echo Moraso_Html_Helper_Image::getHtml($image->idart, $image->filename, $this->width, $this->height, $this->render, $this->attributes);
             ?>
@@ -17,7 +17,7 @@
     <?php
     $image = (object) $this->selectedImages[0];
 
-    $this->attributes['alt'] = $image->subline;
+    $this->attributes->alt = $image->subline;
 
     echo Moraso_Html_Helper_Image::getHtml($image->idart, $image->filename, $this->width, $this->height, $this->render, $this->attributes);
     ?>

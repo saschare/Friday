@@ -24,8 +24,6 @@ class Moraso_Html_Helper_Image {
 
     private static function _createAttributes($attributes) {
 
-        $attributes = (object) $attributes;
-
         $return = '';
 
         foreach ($attributes as $attr => $value) {

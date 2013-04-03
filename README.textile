@@ -1,69 +1,7 @@
-h1. moraso CMS (based on aitsu CMF)
+h1. moraso CMS (basierend auf dem aitsu CMF)
 
 aitsu version: *2.7.1-3*
-moraso version: *1.9.0-2*
-
-h2. About
-
-For further information on aitsu(tm), please visit "the official website":http://www.aitsu.org/.
-
-h2. Documentation
-
-The documentation can be found "here":doc/index.textile.
+moraso version: *1.12.2-4*
 
 h2. Installation
 
-The installation is amazingly easy:
-
-# Go the document root, initialize and configure git and pull aitsu's master branch.
-# Create a MySQL database (using UTF-8!).
-# Open /application/configs/config.ini and set the database name and the user credentials as appropriate.
-# In the same file specify the installation password (setup.password).
-# Open /application/configs/clients/default.ini and set the domain, the installation is running on.
-# Allow the web server to read and write the directory /application/data, its content and its sub-directories.
-# Log in the system on http://www.domain.tld/adm/setup/ using setup as username and your setup password.
-# Run the installation script found at the screen after log in.
-# Log out and log in again using admin as username and your setup password.
-# Run the update script from the main navigation: _Management > Scripts > Update > Synchronize database structure_
-# Change the admin password to a value known to you only and differing from what you set in the configuration. The system does not force you to do so, but it is recommended because the password set in the config.ini is stored in plain text.
-# You're done.
-
-Depending on the configuration of the database the views may not be created with the user you are connecting to the database. If so, use following sql to restore the views:
-
-pre. /application/adm/scripts/Update/createviews.sql
-
-h2. Update
-
-h3. Important notice
-
-* Updating from version 2.4.3-20 or earlier: Due to a minor bug your data may contain 0 (zero) in the column pub_art_meta.schemaorgtype. After finishing the usual update procedure you should run the script that can be found at:
-
-pre. Management > Scripts > Fixes > pub_art_meta.schemaorgtype, replace 0 with null
-
-h3. The fast way for people living on razor's edge
-
-...or for developing, testing and pre-production systems.
-
-To update the system just pull the master branch into your existing installation and run the update script you'll find in the backend in the top navigation:
-
-pre. Management > Scripts > Update > Synchronize database structure
-
-Alternatively you may run the same script in the shell using the command line interface (assuming, the current path is your document root):
-
-pre. php application/cli/index.php -s Update
-
-h3. The secure way for all others
-
-...and in particular for production systems.
-
-The suggested update procedure is as follows:
-
-# Dump the database content and make sure the dump can be restored by restoring it in an identical local installation or on a pre-production system on the server.
-# Create a new branch from the master branch of your installation and and checkout the new branch.
-# Pull the current master branch of aitsu and fix conflicts if necessary.
-# Run the update script mentioned above (and the fix scripts mentioned at the outset, if necessary).
-# Test the system's functionality.
-# If everything is ok, commit the changes you made (if any), change back to the master branch and merge the update branch into it.
-# Your done.
-
-Depending wether or not your data directory is under git's control, you probably want to backup its content, too. And just to be sure: if you have a pre-production system, make the update in this environment first.

@@ -260,7 +260,7 @@ class Moraso_MiniMe implements Aitsu_Event_Listener_Interface {
 
         $css = array();
 
-        $heredity = Moraso_Util_Skin :: buildHeredity();
+        $heredity = Moraso_Skin_Heredity::build();
 
         $heredity_reversed = array_reverse($heredity);
 

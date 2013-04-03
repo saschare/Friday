@@ -1,14 +1,15 @@
+<!-- Standard -->
 <?php if (count($this->articles) > 0): ?>
     <?php foreach ($this->articles as $article) : ?>
         <?php print_r($article); ?>
     <?php endforeach; ?>
 
-    <?php if (isset($this->currentPage)) : ?>
-        <p>
-            current Page: <?php echo $this->currentPage; ?><br />
-            pages: <?php echo $this->pages; ?>
-        </p>
+    <p>
+        current Page: <?php echo $this->currentPage; ?><br />
+        pages: <?php echo $this->pages; ?>
+    </p>
 
+    <?php if ($this->pages > 1) : ?>
         <ul class="pagination">
             <?php for ($p = 1; $p <= $this->pages; $p++) : ?>
                 <li class="<?php echo $p == $this->currentPage ? 'active' : ''; ?>">

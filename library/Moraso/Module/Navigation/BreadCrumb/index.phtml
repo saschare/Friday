@@ -1,0 +1,7 @@
+<ul itemprop="breadcrumb">
+    <?php foreach ($this->bc as $entry) : $entry = (object) $entry; ?>
+        <li>
+            <a href="{ref:idcat-<?php echo $entry->idcat; ?>}"><?php echo $entry->name; ?></a>
+        </li>
+    <?php endforeach; ?>
+</ul>

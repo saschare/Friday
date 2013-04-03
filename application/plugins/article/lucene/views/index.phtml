@@ -1,0 +1,21 @@
+var pageLuceneDeleteHandler = function(formId) {
+    Ext.getCmp(formId).getForm().submit({
+        success: function(form, action) {
+            Ext.aitsu.msg('<?php echo Aitsu_Translate :: translate('Removed'); ?>', '<?php echo Aitsu_Translate :: translate('Article has been removed from Lucene Index.'); ?>');
+            form.findField('lastindexed').setValue(action.result.data.lastindexed);
+            form.findField('title').setValue(action.result.data.title);
+            form.findField('pagetitle').setValue(action.result.data.pagetitle);
+            form.findField('summary').setValue(action.result.data.summary);
+        },
+        failure: function() {
+            Ext.aitsu.errmsg('<?php echo Aitsu_Translate :: translate('Form failure'); ?>', '<?php echo Aitsu_Translate :: translate('Form data have not been saved due to errors.'); ?>');
+        }
+    });
+}
+
+Ext.getCmp('page-plugin-accordion').add({
+    id: 'article-plugin-lucene',
+    title: '<?php echo Aitsu_Translate::translate('Lucene'); ?>',
+    autoScroll: true,
+    items: <?php echo $this->form->render('ExtJs'); ?>
+});

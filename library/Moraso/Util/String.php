@@ -38,13 +38,16 @@ class Moraso_Util_String {
 
         $slug_tolower = strtolower($slug_trim);
 
-        $slug_iconv = iconv($in_charset, $out_charset, $slug_tolower);
+        $specialCharactersSearch = array('ä', 'ö', 'ü', 'à', 'ç', 'è', 'é', 'ê', 'ß');
+        $specialCharactersReplace = array('ae', 'ou', 'ue', 'a', 'c', 'e', 'e', 'e', 'ss');
+
+        $slug_specialCharactersReplaced = str_replace($specialCharactersSearch, $specialCharactersReplace, $slug_tolower);
+
+        $slug_iconv = iconv($in_charset, $out_charset, $slug_specialCharactersReplaced);
 
         $slug_whitespace = preg_replace("%[^-/+|\w ]%", '', $slug_iconv);
 
-        $slug = preg_replace("/[\/_|+ -]+/", '-', $slug_whitespace);
-
-        return $slug;
+        return preg_replace("/[\/_|+ -]+/", '-', $slug_whitespace);
     }
 
     /**

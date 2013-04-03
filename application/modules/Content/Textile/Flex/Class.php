@@ -166,7 +166,7 @@ class Module_Content_Textile_Flex_Class extends Aitsu_Module_Tree_Abstract {
 		$index = Aitsu_Db :: fetchOne('' .
 		'select ' .
 		'	substr(a.identifier, 14, instr(a.identifier, \':\') - 14) + 1 as i ' .
-		'from ait_aitsu_property a,  ait_aitsu_article_property b ' .
+		'from _aitsu_property a,  _aitsu_article_property b ' .
 		'where ' .
 		'	a.propertyid = b.propertyid ' .
 		'	and b.idartlang = :idartlang ' .

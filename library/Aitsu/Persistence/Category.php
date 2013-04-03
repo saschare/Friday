@@ -95,9 +95,9 @@ class Aitsu_Persistence_Category extends Aitsu_Persistence_Abstract {
 
 	public function save( $manualmoddate=false ) {
 
-		$this->_data['urlname'] = Aitsu_Util :: getAlias($this->_data['urlname']);
+		$this->_data['urlname'] = Moraso_Util_String::slugify($this->_data['urlname']);
 		if (empty ($this->_data['urlname'])) {
-			$this->_data['urlname'] = Aitsu_Util :: getAlias($this->_data['name']);
+			$this->_data['urlname'] = Moraso_Util_String::slugify($this->_data['name']);
 		}
 
 		foreach ($this->_data as $key => $value) {

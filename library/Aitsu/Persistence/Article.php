@@ -135,9 +135,9 @@ class Aitsu_Persistence_Article extends Aitsu_Persistence_Abstract {
 		$this->_data['idlang'] = $this->_idlang;
 
 		if (empty ($this->_data['urlname'])) {
-			$this->_data['urlname'] = Aitsu_Util :: getAlias($this->_data['title']);
+			$this->_data['urlname'] = Moraso_Util_String::slugify($this->_data['title']);
 		} else {
-			$this->_data['urlname'] = Aitsu_Util :: getAlias($this->_data['urlname']);
+			$this->_data['urlname'] = Moraso_Util_String::slugify($this->_data['urlname']);
 		}
 
 		if (!isset ($this->_data['created'])) {
@@ -558,13 +558,13 @@ class Aitsu_Persistence_Article extends Aitsu_Persistence_Abstract {
 		'	artconf.config as artconfigset, ' .
 		'	catlang.config as catconfig, ' .
 		'	catconf.config as catconfigset ' .
-		'from ait_art_lang artlang ' .
-		'left join ait_cat_art catart on artlang.idart = catart.idart ' .
-		'left join ait_cat cat on catart.idcat = cat.idcat ' .
-		'left join ait_cat parent on cat.lft between parent.lft and parent.rgt ' .
-		'left join ait_cat_lang catlang on parent.idcat = catlang.idcat and catlang.idlang = artlang.idlang ' .
-		'left join ait_configset catconf on catconf.configsetid = catlang.configsetid ' .
-		'left join ait_configset artconf on artconf.configsetid = artlang.configsetid ' .
+		'from _art_lang artlang ' .
+		'left join _cat_art catart on artlang.idart = catart.idart ' .
+		'left join _cat cat on catart.idcat = cat.idcat ' .
+		'left join _cat parent on cat.lft between parent.lft and parent.rgt ' .
+		'left join _cat_lang catlang on parent.idcat = catlang.idcat and catlang.idlang = artlang.idlang ' .
+		'left join _configset catconf on catconf.configsetid = catlang.configsetid ' .
+		'left join _configset artconf on artconf.configsetid = artlang.configsetid ' .
 		'where ' .
 		'	artlang.idart = :idart ' .
 		'	and artlang.idlang = :idlang ' .

@@ -148,21 +148,13 @@ abstract class Moraso_Module_Abstract extends Aitsu_Module_Abstract {
 
         $modulePath = implode('/', $module_sliced);
 
-        $heredity = Moraso_Util_Skin :: buildHeredity();
+        $view->addScriptPath(APPLICATION_PATH . '/modules/' . $modulePath . '/');
+        $view->addScriptPath(realpath(APPLICATION_PATH . '/../library/') . '/Moraso/Module/' . $modulePath . '/');
 
-        $modulePaths = array();
-        foreach ($heredity as $skin) {
-            $modulePaths['skin'] = APPLICATION_PATH . "/skins/" . $skin . "/module/" . $modulePath . '/';
-        }
+        $heredity = Moraso_Skin_Heredity::build();
 
-        $modulePaths['moraso'] = realpath(APPLICATION_PATH . '/../library/') . '/Moraso/Module/' . $modulePath . '/';
-        $modulePaths['aitsu'] = APPLICATION_PATH . '/modules/' . $modulePath . '/';
-
-        foreach ($modulePaths as $path) {
-            if (count(preg_grep("/^Class.php$|.phtml$/", Aitsu_Util_Dir :: scan($path))) > 0) {
-                $view->setScriptPath($path);
-                break;
-            }
+        foreach (array_reverse($heredity) as $skin) {
+            $view->addScriptPath(APPLICATION_PATH . "/skins/" . $skin . "/module/" . $modulePath . '/');
         }
 
         return $view;

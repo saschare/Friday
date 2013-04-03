@@ -30,10 +30,10 @@ class Aitsu_Xml_Sitemap {
 select distinct
   concat(if(cat.parentid = 0, '', catlang.url), '/', if(catlang.startidartlang = artlang.idartlang, '', concat(artlang.urlname, '.html'))) loc,
   date_format(artlang.lastmodified, '%Y-%m-%dT%H:%i:%s') lastmod
-from ait_art_lang artlang
-left join ait_cat_art catart on artlang.idart = catart.idart
-left join ait_cat cat on catart.idcat = cat.idcat
-left join ait_cat_lang catlang on cat.idcat = catlang.idcat and artlang.idlang = catlang.idlang
+from _art_lang artlang
+left join _cat_art catart on artlang.idart = catart.idart
+left join _cat cat on catart.idcat = cat.idcat
+left join _cat_lang catlang on cat.idcat = catlang.idcat and artlang.idlang = catlang.idlang
 where 
   catlang.visible = 1
   and catlang.public = 1

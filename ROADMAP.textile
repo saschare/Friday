@@ -1,15 +1,7 @@
 h1. moraso CMS (aitsu CMF Fork by webtischlerei) - Roadmap
 
-h2. v1.1.0
-# removed all unused files *"issue #1":https://github.com/webtischlerei/moraso/issues/1*
-# replaced default skin with a simple "it`s working" page *"issue #2":https://github.com/webtischlerei/moraso/issues/2*
-# removed all aitsuEe files and depencies *"issue #3":https://github.com/webtischlerei/moraso/issues/3*
-# updated Zend Framework to newest Zend Framework 1.x version *"issue #4":https://github.com/webtischlerei/moraso/issues/4*
-# cleand up database dump *"issue #5":https://github.com/webtischlerei/moraso/issues/5*
+h2. v1.10.0
+# Modul-Liste // welche Module habe ich hier eigentlich alle so im Einsatz, welche Templates liegen vor, gibt es vll. eine neuere Version? etc
 
-h2. v1.2.0
-# setup checks requirements, for example: php >= 5.2 or mysql >= 5.1 *"issue #6":https://github.com/webtischlerei/moraso/issues/6*
-# own eav modell *"issue #8":https://github.com/webtischlerei/moraso/issues/8*
-
-h2. v1.3.0
-# added basic logging of user actions *"issue #7":https://github.com/webtischlerei/moraso/issues/7*
+h2. v1.11.0
+# Complete-Sync // Es wird die Möglichkeit geben eine neue und leere Sprache mit einer vorhandenen Sprache komplett zu synchronisieren

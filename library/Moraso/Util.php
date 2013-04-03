@@ -39,4 +39,13 @@ class Moraso_Util extends Aitsu_Util {
         return $idclient;
     }
 
+    public static function parseSimpleIni($text, $base = null) {
+
+        $base = new Zend_Config_Ini(!empty($base) ? $base : '1 = 1', null, array(
+            'allowModifications' => true
+        ));
+        $text = new Zend_Config_Ini(!empty($text) ? $text : '1 = 1');
+
+        return $base->merge($text);
+    }
 }

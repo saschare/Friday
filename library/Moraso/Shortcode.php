@@ -28,7 +28,7 @@ class Moraso_Shortcode extends Aitsu_Shortcode {
 
         $files = array();
 
-        $heredity = Moraso_Util_Skin :: buildHeredity();
+        $heredity = Moraso_Skin_Heredity::build();
 
         foreach ($heredity as $skin) {
             $files['Skin_Module'][] = APPLICATION_PATH . "/skins/" . $skin . "/module/" . str_replace('.', '/', $method) . "/Class.php";

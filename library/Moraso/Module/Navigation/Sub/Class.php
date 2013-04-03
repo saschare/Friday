@@ -16,6 +16,10 @@ class Moraso_Module_Navigation_Sub_Class extends Moraso_Module_Abstract {
 
         $bc = Aitsu_Persistence_View_Category :: breadCrumb();
 
+        if (!isset($bc[$firstLevel])) {
+            return '';
+        }
+        
         $view = $this->_getView();
         $view->nav = Aitsu_Persistence_View_Category :: nav2($bc[$firstLevel]['idcat']);
 

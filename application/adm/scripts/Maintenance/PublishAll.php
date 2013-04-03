@@ -20,8 +20,8 @@ class Adm_Script_PublishAll extends Aitsu_Adm_Script_Abstract {
 		'	artlang.idartlang, ' .
 		'	artlang.idart, ' .
 		'	artlang.idlang ' .
-		'from ait_art_lang artlang ' .
-		'left join ait_pub pub on artlang.idartlang = pub.idartlang and pub.status = 1 ' .
+		'from _art_lang artlang ' .
+		'left join _pub pub on artlang.idartlang = pub.idartlang and pub.status = 1 ' .
 		'where ' .
 		'	(' .
 		'		artlang.lastmodified > pub.pubtime ' .
@@ -50,8 +50,8 @@ class Adm_Script_PublishAll extends Aitsu_Adm_Script_Abstract {
 		'	artlang.idartlang, ' .
 		'	artlang.idart, ' .
 		'	artlang.idlang ' .
-		'from ait_art_lang artlang ' .
-		'left join ait_pub pub on artlang.idartlang = pub.idartlang and pub.status = 1 ' .
+		'from _art_lang artlang ' .
+		'left join _pub pub on artlang.idartlang = pub.idartlang and pub.status = 1 ' .
 		'where ' .
 		'	(' .
 		'		artlang.lastmodified > pub.pubtime ' .

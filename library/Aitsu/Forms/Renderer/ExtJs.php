@@ -235,6 +235,15 @@ class Aitsu_Forms_Renderer_ExtJs {
 				$value .= ", handler: function() {formSubmit('$uid');}";
 			}
 		}
+                
+                if ($key == 'delete') {
+			$value .= ", iconCls: 'delete'";
+			if (isset ($button['handler'])) {
+				$value .= ", handler: function() {{$button['handler']}('$uid');}";
+			} else {
+				$value .= ", handler: function() {formSubmit('$uid');}";
+			}
+		}
 
 		$value .= '}';
 	}

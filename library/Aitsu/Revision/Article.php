@@ -65,14 +65,14 @@ class Aitsu_Revision_Article implements Aitsu_Event_Listener_Interface {
 		 * Remove unnecessary revision entries.
 		 */
 		Aitsu_Db :: query('' .
-		'delete a from ait_revision_art_lang as a ' .
+		'delete a from _revision_art_lang as a ' .
 		'left join ( ' .
 		'	select idartlang, max(revisionid) as revisionid ' .
-		'	from ait_revision_art_lang ' .
+		'	from _revision_art_lang ' .
 		'	where revisionid != :revisionid ' .
 		'	group by idartlang ' .
 		'	) as b on a.idartlang = b.idartlang ' .
-		'left join ait_revision_art_lang as c on b.idartlang = c.idartlang and b.revisionid = c.revisionid ' .
+		'left join _revision_art_lang as c on b.idartlang = c.idartlang and b.revisionid = c.revisionid ' .
 		'where ' .
 		'	a.revisionid = :revisionid ' .
 		'	and c.revisionhash = a.revisionhash', array (
@@ -101,14 +101,14 @@ class Aitsu_Revision_Article implements Aitsu_Event_Listener_Interface {
 		 * Remove unnecessary revision entries.
 		 */
 		Aitsu_Db :: query('' .
-		'delete a from ait_revision_content as a ' .
+		'delete a from _revision_content as a ' .
 		'left join ( ' .
 		'	select idartlang, `index`, max(revisionid) as revisionid ' .
-		'	from ait_revision_content ' .
+		'	from _revision_content ' .
 		'	where revisionid != :revisionid ' .
 		'	group by idartlang, `index` ' .
 		'	) as b on a.idartlang = b.idartlang and a.index = b.index ' .
-		'left join ait_revision_content as c on b.idartlang = c.idartlang and b.index = c.index and b.revisionid = c.revisionid ' .
+		'left join _revision_content as c on b.idartlang = c.idartlang and b.index = c.index and b.revisionid = c.revisionid ' .
 		'where ' .
 		'	a.revisionid = :revisionid ' .
 		'	and c.revisionhash = a.revisionhash', array (
@@ -139,14 +139,14 @@ class Aitsu_Revision_Article implements Aitsu_Event_Listener_Interface {
 		 * Remove unnecessary revision entries.
 		 */
 		Aitsu_Db :: query('' .
-		'delete a from ait_revision_property as a ' .
+		'delete a from _revision_property as a ' .
 		'left join ( ' .
 		'	select propertyid, idartlang, max(revisionid) as revisionid ' .
-		'	from ait_revision_property ' .
+		'	from _revision_property ' .
 		'	where revisionid != :revisionid ' .
 		'	group by propertyid, idartlang ' .
 		'	) as b on a.propertyid = b.propertyid and a.idartlang = b.idartlang ' .
-		'left join ait_revision_property as c on c.idartlang = b.idartlang and c.propertyid = b.propertyid and b.revisionid = c.revisionid ' .
+		'left join _revision_property as c on c.idartlang = b.idartlang and c.propertyid = b.propertyid and b.revisionid = c.revisionid ' .
 		'where ' .
 		'	a.revisionid = :revisionid ' .
 		'	and c.revisionhash = a.revisionhash', array (
