@@ -1,0 +1,4 @@
+<!-- bg -->
+<?php foreach ($this->images as $image) : ?>
+style="background-image: url(<?php echo Aitsu_Registry::get()->config->sys->webpath; ?>image/1920/1440/2/<?php echo (empty($image->idart) ? 'null' : $image->idart); ?>/<?php echo $image->filename; ?>" alt="<?php echo $image->name; ?>); overflow: hidden; min-height:1000px; background-repeat:repeat;"
+<?php endforeach; ?>
