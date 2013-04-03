@@ -1,0 +1,100 @@
+/* Unchanged */
+/************************************************************************************
+smaller than 1020
+*************************************************************************************/
+@media screen and (max-width: 1020px) {
+
+	body {min-width: 100%}
+	.story, .inside {width:95%; min-width:95%}
+	div.bg[style] {width:45%; max-width:45%}
+	#header, #footer .main, #footer .secondary, .pagination {width:95%}
+	#footer .widget_tia_pixelscroll {width:90%}
+}
+
+/************************************************************************************
+smaller than 950
+*************************************************************************************/
+@media screen and (max-width: 950px) {
+
+	#sidebar, #content {float:none}
+	
+	#sidebar {margin-left: 40px}
+	
+	.post img, .post object {max-width:95%}
+	
+	#logo, #mainNav {position: relative}
+	
+	#mainNav li {margin: 0 20px 0 0;}
+	
+	#cover-left, #cover-right {display:none}
+	
+	#content #nav li a {
+		text-indent: -999em;
+		width: 15px;
+		height: 15px;
+		padding:0;
+	}
+	
+	#commentForm {margin-left: 0}
+	
+	.float-left {margin-right:5%}
+	.float-right {margin-left:5%}
+	
+	.secondary p.left, .secondary p.right, #socialNetworks {float:none; text-align: center; padding: 8px 0; margin: 0;}
+
+}
+
+/************************************************************************************
+smaller than 860
+*************************************************************************************/
+@media screen and (max-width: 860px) {
+
+	.bg {display:none}
+	
+	.float-left, .float-right, .story .float-left, .story .float-right {float:none; width:99%; min-width:99%; margin:0}
+	
+	#mainNav {
+		font-size: 14px;
+		margin-right: 10px;
+	}
+}
+
+/************************************************************************************
+smaller than 600
+*************************************************************************************/
+@media screen and (max-width: 600px) {
+
+	.posts {width:90%}
+
+	.post {background-attachment:scroll;}
+	
+	.secondary p.left, .secondary p.right {font-size: 10px}
+	
+	#content ul li {
+		margin: 0 0 5px 0;
+		padding: 0;
+	}
+	
+	#content #nav {
+		right:10px;
+	}
+	
+	#content.postshome .post, .posthome {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.float-left, .float-right, .story .float-left, .story .float-right {float:none; width:95%; min-width:95%}
+	
+	#pageHead, #content .post, #commentForm {margin-left: 10px}
+}
+
+/************************************************************************************
+smaller than 480
+*************************************************************************************/
+@media screen and (max-width: 480px) {
+	.footerBox {
+		margin: 0 0 25px 0;
+	}
+}
+

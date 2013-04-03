@@ -1,0 +1,24 @@
+/* Unchanged */
+#slideshow {
+	z-index: 1;
+}
+
+#mainNav {
+	z-index: 50;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif !important;
+}
+
+#content .button,
+#sidebar .button,
+#footer .button,
+#searchsubmit  {
+	font-family: Arial, Helvetica, sans-serif !important;	
+}
+
+#sidebar ul.recentPostsSidebar img {
+
+	float:left;
+	}
