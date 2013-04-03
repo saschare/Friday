@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <script type="application/x-moraso" src="HTML.Meta.PageTitle">
-            suffix = " | moraso CMS"
+            suffix = " | Tim Friday | Landscape design"
         </script>
 
         <!-- BaseHref :: Start -->
@@ -22,7 +22,7 @@
 
         <!-- Meta Geo Tags :: Start -->
         <meta name="geo.region" content="DE-NI" />
-        <meta name="geo.placename" content="Hoya" />
+        <meta name="geo.placename" content="Andelsbuch" />
         <meta name="geo.position" content="52.80912;9.14234" />
         <meta name="ICBM" content="52.80912, 9.14234" />
         <!-- Meta Geo Tags :: End -->
@@ -34,22 +34,89 @@
         <!-- Windows 8 Tile :: End -->
 
         <!-- CSS :: Start -->
-        <link rel="stylesheet" href="/skin/css/normalize.css" />
+        <link rel="stylesheet" href="/skin/css/style.css" />
         <link rel="stylesheet" href="/skin/css/foundation.min.css">
         <link rel="stylesheet" href="/skin/css/compiled/app.css">
+        <link rel="stylesheet" id="superfish-css"  href="js/superfish/superfish-2404.css" type="text/css" media="all" />
         <!-- CSS :: End -->
 
         <!-- JS :: Start -->
         <script src="/skin/js/vendor/prefixfree.min.js"></script>
-        <script src="/skin/js/vendor/custom.modernizr.js"></script>
-        <!-- JS :: End -->
+        <script type="text/javascript" src="/skin/js/jquery-1.9.0.min.js"></script>
+        <script type="text/javascript" src="/skin/js/jquery.mousewheel-3.0.6.pack.js"></script>
+        <script type="text/javascript" src="/skin/source/jquery.fancybox.js?v=2.1.4"></script>
+        <link rel="stylesheet" type="text/css" href="/skin/source/jquery.fancybox.css?v=2.1.4" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/skin/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+        <script type="text/javascript" src="/skin/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+        <link rel="stylesheet" type="text/css" href="/skin/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+        <script type="text/javascript" src="/skin/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+        <script type="text/javascript" src="/skin/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+        
+        <script type='text/javascript'>
+			storyBump = 70; 
+			trainerBump = 150; 
+			parallaxHeight = 1000; 
+		</script>	
+
+		<script type="text/javascript" src="/skin/js/jquery.localscroll-1.2.7-min.js"></script>
+		<script type="text/javascript" src="/skin/js/parallax.js"></script>
+		<script type="text/javascript" src="/skin/js/jquery.scrollTo-1.4.2-min.js"></script>
+		<script type="text/javascript" src="/skin/js/jquery.inview.js"></script>
+	
+		<script type="text/javascript">
+			$(document).ready(function(){
+	
+				$('.fancybox').fancybox();
+
+				function setTopMargin() {
+					var headerHeight = $('#headerBar').height();
+					$('body.home #container').css('margin-top',headerHeight);
+				}
+	
+				var headerHeightNeg = 0 - $('#headerBar').height();
+					$('#nav').localScroll({offset: {left: 0, top: headerHeightNeg}});
+					$('#mainNav').localScroll({offset: {left: 0, top: headerHeightNeg}});
+					$('#logo').localScroll({offset: {left: 0, top: headerHeightNeg}});
+
+					$('.story .blockText').css('margin-top',storyBump);
+					setTopMargin();
+		
+					$(window).resize(function() { setTopMargin(); });
+			});
+		</script>
+		<!-- JS :: End -->
+		
+		<style type="text/css" media="screen">
+			#content .button, #sidebar .button, #footer .button, #searchsubmit { }
+			#content a, #sidebar p a {color: #97bd3d;}
+			#content a:hover, #sidebar p a:hover {color: #58ae1b;}
+			#content #nav li a {
+				background:#97bd3d;
+				text-indent: -999em;
+				width: 15px;
+				height: 15px;
+				display:block;
+				}
+
+			#content #nav li a:hover, #content #nav li a.active {
+				background:#58ae1b;
+				color:#fff;
+			}
+			#content #nav li a:hover, #content #nav li a.active {
+				background:#58ae1b;
+				color:#fff;
+			}
+			#mainNav a.active {
+				color:#97bd3d;
+			}
+		</style>
 
         <!-- IE Fix for HTML5 Tags -->
         <!--[if lt IE 9]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     </head>
-    <body>
+    <body class="home blog">
 
         <!-- Google Tag Manager -->
         <script type="application/x-moraso" src="Google.Tag.Manager">
