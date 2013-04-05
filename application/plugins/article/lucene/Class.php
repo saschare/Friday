@@ -60,9 +60,9 @@ class LuceneArticleController extends Aitsu_Adm_Plugin_Controller {
 
         $hits = $index->find('uid:' . $data['uid'] . ' AND lang:' . $idlang . ' AND idart:' . $idart);
 
-        if (isset($hits[0]) && !empty($hits[0])) {
+        if (isset($hits[0]) && !empty($hits[0]) && $hits[0]->score == 1) {
             $form->setValue('id', $hits[0]->id);
-
+            
             $luceneDocument = $hits[0]->getDocument();
 
             $form->setValue('uid', $luceneDocument->uid);

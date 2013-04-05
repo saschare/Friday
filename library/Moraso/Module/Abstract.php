@@ -8,6 +8,7 @@ abstract class Moraso_Module_Abstract extends Aitsu_Module_Abstract {
 
     protected $_renderOnMobile = true;
     protected $_renderOnTablet = true;
+    protected $_moduleConfigDefaults = array();
 
     protected static function _getInstance($className) {
 
@@ -68,6 +69,8 @@ abstract class Moraso_Module_Abstract extends Aitsu_Module_Abstract {
         if (!$instance->_allowEdit || (isset($instance->_params->edit) && !$instance->_params->edit)) {
             Aitsu_Content_Edit :: noEdit($instance->_moduleName, true);
         }
+
+        $instance->_getModulConfigDefaults(str_replace('_', '.', strtolower($instance->_moduleName)));
 
         $output_raw = $instance->_init();
 
@@ -158,6 +161,54 @@ abstract class Moraso_Module_Abstract extends Aitsu_Module_Abstract {
         }
 
         return $view;
+    }
+
+    protected function _getDefaults() {
+
+        $defaults = array();
+
+        return $defaults;
+    }
+
+    protected function _getModulConfigDefaults($module) {
+
+        $moduleConfig = Moraso_Config::get('module.' . $module);
+
+        $defaults = $this->_getDefaults();
+
+        foreach ($defaults as $key => $value) {
+            $type = gettype($value);
+
+            if (isset($moduleConfig->$key->default)) {
+                $default = $moduleConfig->$key->default;
+                $defaults[$key] = $type == 'integer' ? (int) $default : ($type == 'boolean' ? filter_var($default, FILTER_VALIDATE_BOOLEAN) : $default);
+            }
+
+            if (isset($moduleConfig->$key->configurable)) {
+                $defaults['configurable'][$key] = filter_var($moduleConfig->$key->configurable, FILTER_VALIDATE_BOOLEAN);
+            }
+
+            if (!isset($defaults['configurable'][$key])) {
+                $defaults['configurable'][$key] = false;
+            }
+
+            if (isset($this->_params->default->$key)) {
+                $default = $this->_params->default->$key;
+                $defaults[$key] = $type == 'integer' ? (int) $default : ($type == 'boolean' ? filter_var($default, FILTER_VALIDATE_BOOLEAN) : $default);
+            }
+
+            if (isset($this->_params->$key)) {
+                $default = $this->_params->$key;
+
+                if ($default === 'config') {
+                    $defaults['configurable'][$key] = true;
+                } else {
+                    $defaults[$key] = $type == 'integer' ? (int) $default : ($type == 'boolean' ? filter_var($default, FILTER_VALIDATE_BOOLEAN) : $default);
+                }
+            }
+        }
+
+        $this->_moduleConfigDefaults = $defaults;
     }
 
 }

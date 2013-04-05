@@ -1,0 +1,125 @@
+var dashboard = Ext.getCmp('dashboard');
+
+var store = new Ext.data.JsonStore({
+		        autoDestroy: true,
+		        url: '<?php echo $this->url(array('paction' => 'store')); ?>',
+		        root: 'articles',
+		        fields: [{
+		            name: 'id'
+		        }, {
+		            name: 'uid'
+		        }, {
+		            name: 'idart'
+		        }, {
+		            name: 'pagetitle'
+		        }, {
+		            name: 'teasertitle'
+		        }, {
+		            name: 'lastindexed',
+                            type: 'date',
+                            dateFormat: 'Y-m-d H:i:s'
+		        }]
+});
+
+var luceneAnalyser = new Ext.grid.GridPanel({
+    id: 'luceneAnalyser',
+    title: 'Lucene Analyser',
+    store: store,
+    sortInfo: {
+        field: 'lastindexed',
+        direction: 'DESC'
+    },
+    columns: [
+    	{
+            dataIndex: 'idart',
+            header: 'idart',
+            menuDisabled: true,
+            sortable: true
+        }, {
+            dataIndex: 'pagetitle',
+            header: '<?php echo Aitsu_Translate::translate('Pagetitle'); ?>',
+            menuDisabled: true,
+            sortable: true
+        }, {
+            dataIndex: 'teasertitle',
+            header: '<?php echo Aitsu_Translate::translate('Teasertitle'); ?>',
+            menuDisabled: true,
+            sortable: true
+        }, {
+            dataIndex: 'lastindexed',
+            header: '<?php echo Aitsu_Translate::translate('last Indexed'); ?>',
+            menuDisabled: true,
+            sortable: true,
+            renderer: Ext.util.Format.dateRenderer('d.m.Y H:i:s')
+        }
+    ],
+    viewConfig: {
+        forceFit: true,
+        autoFill: true
+    },
+	listeners: {
+		render: {
+			fn: function(){
+				this.getStore().load();
+			}
+		},
+		rowcontextmenu: function(grid, rowIndex, event) {
+                    var record = this.getStore().getAt(rowIndex);
+                    var menu = new Ext.menu.Menu();
+			                    
+                    menu.addItem({
+                        text: '<?php echo $this->translate('delete Article from Lucene-Index'); ?>',
+                        iconCls: 'delete',
+                        handler: function() {
+                            Ext.aitsu.load(['<?php echo $this->url(array('paction' => 'delete')); ?>'], function() {
+                                Ext.getCmp('luceneAnalyser').getStore().load();
+                            }, {
+                                id: record.get('id'),
+                                uid: record.get('uid')
+                            });
+                        }
+                    });
+						
+                    menu.showAt(event.getXY());
+		}
+	},
+	tbar: {
+            items: [
+                {
+                    tooltip: '<?php echo Aitsu_Translate :: translate('Refresh'); ?>',
+                    iconCls: 'tb-refresh',
+                    handler: function(b, e) {
+                        Ext.getCmp('luceneAnalyser').getStore().reload();
+                    }
+                }, {
+                    tooltip: '<?php echo Aitsu_Translate :: translate('Optimize'); ?>',
+                    iconCls: 'tb-add',
+                    handler: function(b, e) {
+                        Ext.aitsu.load(['<?php echo $this->url(array('paction' => 'optimize')); ?>'], function() {
+                            Ext.getCmp('luceneAnalyser').getStore().reload();
+                        });
+                    }
+                }, {
+                    tooltip: '<?php echo Aitsu_Translate :: translate('delete broken Entries from Lucene-Index'); ?>',
+                    iconCls: 'delete',
+                    handler: function(b, e) {
+                        Ext.aitsu.load(['<?php echo $this->url(array('paction' => 'deleteBroken')); ?>'], function() {
+                            Ext.getCmp('luceneAnalyser').getStore().reload();
+                        });
+                    }
+                }
+	    ]
+	}
+});
+
+dashboard.add({
+	columnWidth: 1/3,
+	baseCls:'x-plain',
+	bodyStyle:'padding:6px 4px 0 4px',
+	items: {
+		unstyled: true,
+		height: 370,
+		layout: 'fit',
+		items: luceneAnalyser
+	}
+});

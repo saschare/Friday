@@ -1,7 +1,7 @@
 h1. moraso CMS (basierend auf dem aitsu CMF)
 
 aitsu version: *2.7.1-3*
-moraso version: *1.12.2-4*
+moraso version: *1.12.6-8*
 
 h2. Installation
 
