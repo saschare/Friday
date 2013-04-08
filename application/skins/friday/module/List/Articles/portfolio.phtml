@@ -1,0 +1,24 @@
+<!-- portfolio -->
+<?php $counter = -1; foreach ($this->articles as $article) : $counter++; ?>
+<div style="float:left; width: 120px; height: 120px; margin: 0 5px 5px 0; background: #fff;">									
+	<!-- <?php echo $article->pagetitle; ?> -->
+    <?php $images = unserialize($article->bild); ?>
+    <a class="open_fancybox<?php echo $counter; ?>" href="image/800/600/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>" title="<?php echo $article->pagetitle; ?>" alt="<?php echo $article->pagetitle; ?>"><img src="/image/120/120/1/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>" width="120" height="120"></a>
+
+    <script>
+    	$(".open_fancybox<?php echo $counter; ?>").click(function() {
+    
+	    $.fancybox.open([
+<?php foreach ($images as $image) : ?>
+		{ 	href : '/image/800/600/0/<?php echo $article->idart; ?>/<?php echo $image; ?>', title : '<?php echo $article->pagetitle; ?>' },
+ <?php endforeach; ?>
+        {  }
+    ], {
+        padding : 0
+    });
+        return false;
+    });       
+    </script>         
+</div>                   
+<?php endforeach; ?>
+<div style="clear:both"></div>
