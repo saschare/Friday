@@ -76,6 +76,7 @@ class Moraso_Transformation_Shortcode implements Aitsu_Event_Listener_Interface 
             Aitsu_Registry :: get()->env->idartlang = $old['idartlang'];
             Aitsu_Registry :: get()->env->idart = $old['idart'];
             Aitsu_Registry :: get()->env->idlang = $old['idlang'];
+            Aitsu_Registry :: get()->env->idcat = $old['idcat'];
             Aitsu_Registry :: get()->env->client = $old['client'];
             return;
         }

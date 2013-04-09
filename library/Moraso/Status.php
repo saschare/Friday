@@ -8,7 +8,7 @@ class Moraso_Status {
 
     public static function version() {
 
-        $version = '$version/1.12.6/revision/8$';
+        $version = '$version/1.12.8/revision/4$';
 
         return str_replace(array(
             'version/',

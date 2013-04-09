@@ -22,7 +22,11 @@ TABLE OF CONTENTS
 01 Style Reset
 ----------------------------*/
 @font-face {
+<<<<<<< HEAD
     font-family: 'LeagueGothicRegular';
+=======
+    font-family: 'Regular';
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
     src: url('League_Gothic-webfont.eot');
     src: url('League_Gothic-webfont-55301.eot') format('embedded-opentype'),
          url('League_Gothic-webfont.woff') format('woff'),
@@ -89,8 +93,13 @@ iframe {
 ----------------------------*/
 
 body {
+<<<<<<< HEAD
 	font-size:14px;
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+=======
+	font-size:16px;
+	font-family: 'Trebuchet MS';
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
 	width:auto; height:auto;	
 	padding: 0;
 	margin: 0;
@@ -98,7 +107,11 @@ body {
 }
 
 p {
+<<<<<<< HEAD
 	line-height:1.7em;
+=======
+	line-height:1.3em;
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
 	margin: 0 0 20px 0;	
 }
 
@@ -115,6 +128,7 @@ a img {
 	border:none;
 }
 
+<<<<<<< HEAD
 h1, h2{
 	font-family: Helvetica, Arial, sans-serif;
 	color: #666;	
@@ -136,10 +150,29 @@ h2 {
 
 .head1 {
 	font: 80px Helvetica, Tahoma, Arial, Sans-Serif; normal;
+=======
+h1 {
+	font: 32px Arial; normal;
+	line-height:30px;
+	margin-top:10px;
+	text-transform: uppercase;
+	color: #d5d729;
+}
+
+h2 {
+	font: 16px 'Trebuchet MS'; normal;
+	margin-top:10px;
+	line-height: 0.9em;
+}
+
+.head1 {
+	font: 60px Arial, Sans-Serif; normal;
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
 	padding: 5px;
 	line-height: 1.5em; 
 	text-transform:uppercase; 
 	color: #000; 
+<<<<<<< HEAD
 	background: #fff;"
 	}
 
@@ -149,6 +182,13 @@ h2 {
 	text-transform:uppercase; 
 	color: #000; 
 	background: #fff;"
+=======
+	background: #fff;
+	}
+
+.head2 {
+	color: #fff; background: #9fa316; line-height: 2em; font-size: 16px; padding: 0 5px 5px 0;
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
 	}
 	
 blockquote, address {
@@ -181,7 +221,10 @@ input[type="text"], textarea {
 .float-left, .float-right {
 	float: left;	
 	margin: 0;
+<<<<<<< HEAD
 	background: transparent url(images/postbgwhite.png) repeat;
+=======
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
 }
 
 .float-left {margin-right:7%}
@@ -569,7 +612,11 @@ html[xmlns] .clearfix {
 	position: relative;
 	width: 350px;
 	line-height: 1em;
+<<<<<<< HEAD
 	font-size: 12px;
+=======
+	font-size: 14px;
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
 }
 
 .story .float-left h1, .inside .float-left h1, .story .float-right h1, .inside .float-right h1, .story .center h1 {
@@ -1264,6 +1311,7 @@ table#wp-calendar td a:hover{
 12 Custom and Override CSS
 ----------------------------*/
 
+<<<<<<< HEAD
 /* Background */
 body.black, .black #footer {	
 	color:#FFF;
@@ -1334,6 +1382,9 @@ body.black #cover-right {
 body.white, .white #footer, .white .pagination-next a, .white .pagination-prev a {
 	background: #fff;	
 }
+=======
+
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
 
 #footer .widget_tia_pixelscroll {
 	width: 100%;
@@ -1357,7 +1408,11 @@ body.white, .white #footer, .white .pagination-next a, .white .pagination-prev a
 .bg1 {
 	background-repeat:no-repeat;
 	background-position:right; 
+<<<<<<< HEAD
 	width: 500px;
+=======
+	width: 400px;
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
 	background-size:100%;
 	 overflow: hidden;
 	 z-index: 10;

@@ -1,5 +1,6 @@
 <!-- block2 -->
 <?php foreach ($this->articles as $article) : ?>
+<<<<<<< HEAD
     <div id="block2" class="post-78 post type-post status-publish format-standard hentry category-beautiful parallax-container" style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
         <div class="story">
             <div class="float-left blockText" style=" color:#fff; background: #a9c938;">									
@@ -9,4 +10,17 @@
             <div class="bg1" style="background-image: url(files/2011/05/blob.png); min-height:1000px; height:1000px;">&nbsp;</div>                     
         </div>
     </div>		   
+=======
+<div id="block2" class="parallax-container" style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
+	<div class="story">
+    	<div class="float-left blockText" style=" color:#fff; background: #9fa316;">									
+        	<h1><?php echo $article->pagetitle; ?></h1>
+            <h2><?php echo $article->intro; ?></h2>
+            <?php echo $article->content; ?>               
+            <?php $images = unserialize($article->bild); ?>
+        </div>
+        <div class="bg" style="min-height:1000px; height:1000px;"><img src="/image/300/200/1/<?php echo $article->idart; ?>/<?php echo $images[0]; ?>" height="200" width="300"></div>                     
+    </div>
+</div>		   
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
 <?php endforeach; ?>

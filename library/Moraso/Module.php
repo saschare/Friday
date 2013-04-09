@@ -20,41 +20,41 @@ class Moraso_Module extends Aitsu_Core_Module {
 
         ob_start();
 
-        $old['idartlang'] = Aitsu_Registry :: get()->env->idartlang;
-        $old['idart'] = Aitsu_Registry :: get()->env->idart;
-        $old['idlang'] = Aitsu_Registry :: get()->env->idlang;
-        $old['idcat'] = Aitsu_Registry :: get()->env->idcat;
-        $old['client'] = Aitsu_Registry :: get()->env->client;
-        $old['edit'] = Aitsu_Registry :: get()->env->edit;
+        $old['config'] = Aitsu_Registry::get()->config;
+        $old['idart'] = Aitsu_Registry::get()->env->idart;
+        $old['idartlang'] = Aitsu_Registry::get()->env->idartlang;
+        $old['idlang'] = Aitsu_Registry::get()->env->idlang;
+        $old['idcat'] = Aitsu_Registry::get()->env->idcat;
+        $old['client'] = Aitsu_Registry::get()->env->client;
+        $old['edit'] = Aitsu_Registry::get()->env->edit;
 
-        Aitsu_Registry :: get()->config = $this->context['config'];
-        Aitsu_Registry :: get()->env->idart = $this->context['idart'];
-        Aitsu_Registry :: get()->env->idartlang = $this->context['idartlang'];
-        Aitsu_Registry :: get()->env->idlang = $this->context['idlang'];
-        Aitsu_Registry :: get()->env->idcat = $this->context['idcat'];
-        Aitsu_Registry :: get()->env->client = $this->context['client'];
-        Aitsu_Registry :: get()->env->edit = $edit;
+        Aitsu_Registry::get()->config = $this->context['config'];
+        Aitsu_Registry::get()->env->idart = $this->context['idart'];
+        Aitsu_Registry::get()->env->idartlang = $this->context['idartlang'];
+        Aitsu_Registry::get()->env->idlang = $this->context['idlang'];
+        Aitsu_Registry::get()->env->idcat = $this->context['idcat'];
+        Aitsu_Registry::get()->env->client = $this->context['client'];
+        Aitsu_Registry::get()->env->edit = $edit;
 
         foreach ($this->context as $key => $value) {
             $$key = $value;
         }
 
         if ($this->shortCode != null) {
-            $return = Moraso_Shortcode :: getInstance()->evalModule($this->shortCode, $params, 0, $index);
+            $return = Moraso_Shortcode::getInstance()->evalModule($this->shortCode, $params, 0, $index);
         }
 
         if ($renderShortCodes) {
-            $return = Moraso_Transformation_Shortcode :: getInstance()->getContent($return);
+            $return = Moraso_Transformation_Shortcode::getInstance()->getContent($return);
         }
 
-        /*
-         * Restore registry.
-         */
-        Aitsu_Registry :: get()->env->idartlang = $old['idartlang'];
-        Aitsu_Registry :: get()->env->idart = $old['idart'];
-        Aitsu_Registry :: get()->env->idlang = $old['idlang'];
-        Aitsu_Registry :: get()->env->client = $old['client'];
-        Aitsu_Registry :: get()->env->edit = $old['edit'];
+        Aitsu_Registry::get()->config = $old['config'];
+        Aitsu_Registry::get()->env->idart = $old['idart'];
+        Aitsu_Registry::get()->env->idartlang = $old['idartlang'];
+        Aitsu_Registry::get()->env->idlang = $old['idlang'];
+        Aitsu_Registry::get()->env->idcat = $old['idcat'];
+        Aitsu_Registry::get()->env->client = $old['client'];
+        Aitsu_Registry::get()->env->edit = $old['edit'];
 
         return $return;
     }

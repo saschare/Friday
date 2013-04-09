@@ -22,17 +22,17 @@ class Moraso_Module_Image_Class extends Moraso_Module_Abstract {
         $defaults['style'] = '';
         $defaults['float'] = '';
         $defaults['rel'] = '';
-        
+
         return $defaults;
     }
 
     protected function _main() {
 
         $defaults = $this->_moduleConfigDefaults;
-                
+
         $translation = array();
         $translation['configuration'] = Aitsu_Translate::_('Configuration');
-        
+
         if ($defaults['configurable']['idart']) {
             $idart = Aitsu_Content_Config_Text::set($this->_index, 'idart', Aitsu_Translate::_('Article (idart)'), $translation['configuration']);
         }
@@ -40,13 +40,23 @@ class Moraso_Module_Image_Class extends Moraso_Module_Abstract {
         $idart = !empty($idart) ? (int) $idart : $defaults['idart'];
 
         if ($defaults['configurable']['width']) {
-            $width = Aitsu_Content_Config_Text::set($this->_index, 'width', Aitsu_Translate::_('Width'), $translation['configuration']);
+            if (!isset($defaults['selects']['width'])) {
+                $width = Aitsu_Content_Config_Text::set($this->_index, 'width', Aitsu_Translate::_('Width'), $translation['configuration']);
+            } else {
+                $width_select = Aitsu_Content_Config_Select::set($this->_index, 'width', Aitsu_Translate::_('Width'), array_flip($defaults['selects']['width']['names']), $translation['configuration']);
+                $width = $defaults['selects']['width']['values'][$width_select];
+            }
         }
 
         $width = !empty($width) ? (int) $width : $defaults['width'];
 
         if ($defaults['configurable']['height']) {
-            $height = Aitsu_Content_Config_Text::set($this->_index, 'height', Aitsu_Translate::_('Height'), $translation['configuration']);
+            if (!isset($defaults['selects']['height'])) {
+                $height = Aitsu_Content_Config_Text::set($this->_index, 'height', Aitsu_Translate::_('Height'), $translation['configuration']);
+            } else {
+                $height_select = Aitsu_Content_Config_Select::set($this->_index, 'height', Aitsu_Translate::_('Height'), array_flip($defaults['selects']['height']['names']), $translation['configuration']);
+                $height = $defaults['selects']['height']['values'][$height_select];
+            }
         }
 
         $height = !empty($height) ? (int) $height : $defaults['height'];
@@ -101,7 +111,7 @@ class Moraso_Module_Image_Class extends Moraso_Module_Abstract {
             $config = new Zend_Config(Moraso_Util::parseSimpleIni($attr_config)->toArray(), array('allowModifications' => true));
             $attr = $attr->merge($config);
         }
-        
+
         if ($defaults['configurable']['rel']) {
             $rel = Aitsu_Content_Config_Text::set($this->_index, 'rel', Aitsu_Translate::_('rel'), $translation['configuration']);
         }

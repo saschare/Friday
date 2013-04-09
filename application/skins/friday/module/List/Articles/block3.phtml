@@ -2,11 +2,32 @@
 <?php foreach ($this->articles as $article) : ?>
     <div id="block3" class="post-78 post type-post status-publish format-standard hentry category-beautiful parallax-container"  style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
         <div class="story">
+<<<<<<< HEAD
             <div class="float-left blockText" style=" color:#fff; background: #a9c938;">									
                 <h1><?php echo $article->pagetitle; ?></h1><br /><br />
                 <p><?php echo $article->content; ?></p>
             </div>
             <div class="bg1" style="background-image: url(files/2011/05/blob.png); min-height:1000px; height:1000px;">&nbsp;</div>                     
+=======
+            <div class="float-left blockText" style="color:#fff; background: #9fa316; width: 980px;">									
+                <h1><?php echo $article->pagetitle; ?></h1><br /><br />
+                <?php echo $article->content; ?>
+                
+                <script type="application/x-moraso" src="List.Articles:Port">
+	                	categories = 3
+	                	useOfStartArticle = 2
+	                	orderBy = created
+	                	template = portfolio
+	                	limit = 99
+	                	populateWith.intro.index = Einleitung
+	                	populateWith.content.index = Fliesstext
+	                	populateWith.bild.index = Bild
+	                	populateWith.bild.type = property
+	                	populateWith.bild.index = ModuleConfig_bild:Image_Media
+	            </script>
+                
+            </div>
+>>>>>>> f9618c12900acedcc162073e789714a602e66f74
         </div>
     </div>		   
 <?php endforeach; ?>

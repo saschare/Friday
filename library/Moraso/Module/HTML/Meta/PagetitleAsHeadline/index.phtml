@@ -1,0 +1,5 @@
+<?php if (!empty($this->tag)) : ?>
+    <<?php echo $this->tag; ?>><?php echo $this->headline; ?></<?php echo $this->tag; ?>>
+<?php else : ?>
+    <?php echo $this->headline; ?>
+<?php endif; ?>

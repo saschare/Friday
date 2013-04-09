@@ -186,21 +186,49 @@ abstract class Moraso_Module_Abstract extends Aitsu_Module_Abstract {
 
             if (isset($moduleConfig->$key->configurable)) {
                 $defaults['configurable'][$key] = filter_var($moduleConfig->$key->configurable, FILTER_VALIDATE_BOOLEAN);
+
+                if (isset($moduleConfig->$key->selects) && $defaults['configurable'][$key]) {
+                    $selects = $moduleConfig->$key->selects;
+
+                    foreach ($selects as $i => $select) {
+                        if (!is_object($select)) {
+                            $defaults['selects'][$key]['values'][$i] = $select;
+                            $defaults['selects'][$key]['names'][$i] = $select;
+                        } else {
+                            $defaults['selects'][$key]['values'][$i] = $select->value;
+                            $defaults['selects'][$key]['names'][$i] = $select->name;
+                        }
+                    }
+                }
             }
 
             if (!isset($defaults['configurable'][$key])) {
                 $defaults['configurable'][$key] = false;
             }
 
-            if (isset($this->_params->default->$key)) {
-                $default = $this->_params->default->$key;
-                $defaults[$key] = $type == 'integer' ? (int) $default : ($type == 'boolean' ? filter_var($default, FILTER_VALIDATE_BOOLEAN) : $default);
-            }
-
             if (isset($this->_params->$key)) {
                 $default = $this->_params->$key;
 
                 if ($default === 'config') {
+                    if (isset($this->_params->default->$key)) {
+                        $default = $this->_params->default->$key;
+                        $defaults[$key] = $type == 'integer' ? (int) $default : ($type == 'boolean' ? filter_var($default, FILTER_VALIDATE_BOOLEAN) : $default);
+                    }
+
+                    if (isset($this->_params->selects->$key)) {
+                        $selects = $this->_params->selects->$key;
+
+                        foreach ($selects as $i => $select) {
+                            if (!is_object($select)) {
+                                $defaults['selects'][$key]['values'][$i] = $select;
+                                $defaults['selects'][$key]['names'][$i] = $select;
+                            } else {
+                                $defaults['selects'][$key]['values'][$i] = $select->value;
+                                $defaults['selects'][$key]['names'][$i] = $select->name;
+                            }
+                        }
+                    }
+
                     $defaults['configurable'][$key] = true;
                 } else {
                     $defaults[$key] = $type == 'integer' ? (int) $default : ($type == 'boolean' ? filter_var($default, FILTER_VALIDATE_BOOLEAN) : $default);
