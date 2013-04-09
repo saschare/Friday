@@ -119,8 +119,8 @@ h1 {
 	font: 32px Arial; normal;
 	line-height:30px;
 	margin-top:10px;
+	margin-bottom: 30px;
 	text-transform: uppercase;
-	color: #d5d729;
 }
 
 h2 {
@@ -128,6 +128,14 @@ h2 {
 	margin-top:10px;
 	line-height: 0.9em;
 }
+
+
+
+.dark { color:#fff; background: #9fa316;}
+.bright {  color:#222; background: #fff;}
+
+.dark h1    { color: #d5d729;}
+.bright h1 { color: #9fa316;}
 
 .head1 {
 	font: 60px Arial, Sans-Serif; normal;
@@ -539,7 +547,7 @@ html[xmlns] .clearfix {
 
 /*Theme Specific */
 .story {
-	margin: 50px auto 0;
+	margin: 0 auto;
 	min-width: 950px;
 	width: 950px;
 } 
@@ -1276,12 +1284,11 @@ table#wp-calendar td a:hover{
 }
 
 .bg1 {
-	background-repeat:no-repeat;
 	background-position:right; 
-	width: 400px;
+	width: 350px;
 	background-size:100%;
-	 overflow: hidden;
-	 z-index: 10;
+	overflow: hidden;
+	z-index: 10;
 }
 
 
