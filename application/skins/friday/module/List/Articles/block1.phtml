@@ -3,7 +3,7 @@
     <div id="block1" class="parallax-container"  style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
         <div class="story" style="margin-top: 150px;">
             <div class="float-left" style="width: 600px; background: none;">									
-                <span class="head1"><?php echo $article->pagetitle; ?></span><br />
+                <div class="head1" style="padding: 10px; line-height: 1.2em;"><?php echo $article->pagetitle; ?></div><br />
                 <br /><br />
                 <div class="dark" style="padding: 10px 10px; line-height: 25px; width: 650px;">
                     <h2 style="line-height: 22px;"><?php echo strip_tags($article->intro, '<br><br />'); ?></h2>

@@ -131,8 +131,8 @@ h2 {
 
 
 
-.dark { color:#fff; background: #9fa316;}
-.bright {  color:#222; background: #fff;}
+.dark { color:#fff; background: #9fa316; }
+.bright {  color:#222; background: #fff; opacity:0.85; filter:alpha(opacity=85); /* For IE8 and earlier */}
 
 .dark h1    { color: #d5d729;}
 .bright h1 { color: #9fa316;}
@@ -1316,6 +1316,16 @@ table#wp-calendar td a:hover{
             #mainNav a.active {
                 color:#9fa316;
             }
+
+
+.box{
+ -moz-transform:rotate(1deg); /* Firefox 3.6 Firefox 4 */
+-webkit-transform:rotate(1deg); /* Safari */
+-o-transform:rotate(1deg); /* Opera */
+-ms-transform:rotate(1deg); /* IE9 */
+transform:rotate(1deg); /* W3C */
+background: url(/skin/images/bottom_shadow_18.png) no-repeat center bottom; padding-bottom: 18px; margin-top: 70px; width: 370px;
+}
 
 
 
