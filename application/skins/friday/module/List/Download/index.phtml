@@ -1,0 +1,8 @@
+<?php if (empty($this->files) && Aitsu_Application_Status :: isEdit()) : ?>
+	<?php return; ?>
+<?php endif; ?>
+<?php foreach ($this->files as $file) : ?>
+		<a href="/file/<?php echo $file->idart; ?>/<?php echo $file->filename; ?>">
+			<?php echo $file->name; ?>
+		</a>
+<?php endforeach; ?>
