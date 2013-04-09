@@ -1,17 +1,6 @@
 <!-- block1 -->
 <?php foreach ($this->articles as $article) : ?>
     <div id="block1" class="parallax-container"  style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
-<<<<<<< HEAD
-        <div class="story">
-            <div class="float-left blockText" style="width: 600px;">									
-                <span class="head1"><?php echo $article->pagetitle; ?></span><br />
-                <br /><br />
-                <span style="color: #fff; background: #9fa316; line-height: 1.8em; font-size: 150%; padding: 5px;">
-                    <?php echo $article->teaser; ?>
-                </span>		
-            </div>
-            <div class="bg1" style="background-image: url(files/2011/05/blob.png); min-height:1000px; height:1000px;">&nbsp;</div>                     
-=======
         <div class="story" style="margin-top: 150px;">
             <div class="float-left" style="width: 750px; background: none;">									
                 <span class="head1"><?php echo $article->pagetitle; ?></span><br />
@@ -21,7 +10,6 @@
                 </span>		
             </div>
             <div class="bg" style="min-height:1000px; height:1000px;"></div>							
->>>>>>> f9618c12900acedcc162073e789714a602e66f74
         </div>
     </div>		   
 <?php endforeach; ?>
