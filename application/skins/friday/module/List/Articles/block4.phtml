@@ -9,10 +9,12 @@
             <?php echo $article->content; ?>
         </div>
         <div class="bg1" style="min-height:1000px; height:1000px;">
+        	<?php if (!empty($images)) : ?>
         	<div style="background: url(/skin/images/bottom_shadow_18.png) no-repeat center bottom; padding-bottom: 18px; margin-top: 70px;">
 	        <?php foreach ($images as $image) : ?>
 	            	<img src="/image/350/300/1/<?php echo $article->idart; ?>/<?php echo $image; ?>" title="<?php echo $article->pagetitle; ?>">
             <?php endforeach; ?>
+            <?php endif; ?>
             </div>
         </div>
     </div>

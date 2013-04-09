@@ -2,8 +2,9 @@
 <?php foreach ($this->articles as $article) : ?>
     <div id="block3" class="post-78 post type-post status-publish format-standard hentry category-beautiful parallax-container"  style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
         <div class="story">
-            <div class="float-left blockText" style="color:#fff; background: #9fa316; width: 980px;">									
-                <h1><?php echo $article->pagetitle; ?></h1><br /><br />
+            <div class="float-left blockText dark" style="width: 980px;">									
+                <h1><?php echo $article->pagetitle; ?></h1>
+                <h2><?php echo $article->teaser; ?></h2>
                 <?php echo $article->content; ?>
                 
                 <script type="application/x-moraso" src="List.Articles:Port">

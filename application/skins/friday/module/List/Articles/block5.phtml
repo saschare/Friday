@@ -1,16 +1,22 @@
 <!-- block5 -->
 <?php foreach ($this->articles as $article) : ?>
-    <div id="block5" class="parallax-container"  style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
+<?php $imagesfive = unserialize($article->bild); ?>
+
+<div id="block5" class="parallax-container"  style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
         <div class="story">
-            <div class="float-left blockText" style=" color:#fff; background: #9fa316; width: 500px;">									
-                <h1><?php echo $article->pagetitle; ?></h1><br /><br />
-                <?php echo $article->content; ?>
-
-                <?php $imagesfive = unserialize($article->bild); ?>
-
+            <div class="float-left blockText bright" style="width: 500px;">									
+        		<h1><?php echo $article->pagetitle; ?></h1>
+        		<h2><?php echo $article->intro; ?></h2>
+        		<?php echo $article->content; ?>
             </div>
-                    <div><img src="/image/300/200/1/<?php echo $article->idart; ?>/<?php echo $imagestwo[0]; ?>" height="200" width="300"></div>                     
-                     
+            <div class="bg1" style="min-height:1000px; height:1000px;">
+        	<?php if (!empty($images)) : ?>
+        	<div style="background: url(/skin/images/bottom_shadow_18.png) no-repeat center bottom; padding-bottom: 18px; margin-top: 70px;">
+	        <?php foreach ($images as $image) : ?>
+	            	<img src="/image/350/300/1/<?php echo $article->idart; ?>/<?php echo $image; ?>" title="<?php echo $article->pagetitle; ?>">
+            <?php endforeach; ?>
+            <?php endif; ?>
+            </div>
         </div>
-    </div>		   
+     </div>		   
 <?php endforeach; ?>

@@ -292,7 +292,7 @@ html[xmlns] .clearfix {
 04 Header
 ----------------------------*/
 #headerBar{
-	padding: 5px 0 0 0;
+	padding: 0 0 0 0;
 	position:fixed;
 	top:0;
 	width:100%;
@@ -307,7 +307,7 @@ html[xmlns] .clearfix {
 
 #logo a img {
 	width:auto;
-	top: 20px; 
+	top: 10px; 
 }
 
 .headerBarText {
@@ -322,6 +322,7 @@ html[xmlns] .clearfix {
 #socialNetworks {
 	margin:0 0 30px 0px;
 	text-align:right;
+	font-size: 11px;
 }
 
 #socialNetworks a {
@@ -1203,6 +1204,7 @@ table#wp-calendar td a:hover{
 	clear: both;
 	padding: 35px 0 0 0;	
 	margin: 0 auto;
+	font-size: 11px;
 }
 
 #footer .oneThird {
@@ -1216,11 +1218,12 @@ table#wp-calendar td a:hover{
 }
 
 #footer h1, #footer h2, #footer h3, #footer h4{
-	text-shadow: 0 1px 1px rgba(255,255,255,1);
+	text-shadow: 0;
 }
 
 #footer a {	
-	color: #06c;
+	color: #222;
+	text-decoration: underline;
 }
 
 #footer a:hover{
