@@ -2,17 +2,17 @@
 <?php foreach ($this->articles as $article) : ?>
 <div id="block2" class="parallax-container" style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
 	<div class="story">
-    	<div class="float-left blockText bright" style="width: 600px;">								
+    	<div class="float-left blockText bright" style="width: 450px;">								
         	<h1><?php echo $article->pagetitle; ?></h1>
             <h2><?php echo $article->intro; ?></h2>
             <?php echo $article->content; ?>               
             <?php $images = unserialize($article->bild); ?>
         </div>
-        <div class="bg1" style="min-height:1000px; height:1000px;">
+        <div class="bg1" style="min-height:1000px; height:1000px; width: 400px;">
         	<?php if (!empty($images)) : ?>
-        	<div style="background: url(/skin/images/bottom_shadow_18.png) no-repeat center bottom; padding-bottom: 18px; margin-top: 70px;">
+        	<div class="box" style=""> 
 	        <?php foreach ($images as $image) : ?>
-	            	<img src="/image/350/300/1/<?php echo $article->idart; ?>/<?php echo $image; ?>" title="<?php echo $article->pagetitle; ?>">
+	            	<div style="padding: 10px 50px 10px 10px; background-color: #f3f3f3;"><img src="/image/350/300/1/<?php echo $article->idart; ?>/<?php echo $image; ?>" title="<?php echo $article->pagetitle; ?>"></div>
             <?php endforeach; ?>
             <?php endif; ?>
             </div>
