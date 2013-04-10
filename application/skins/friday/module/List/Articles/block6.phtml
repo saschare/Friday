@@ -1,7 +1,7 @@
 <!-- block6 -->
 <?php foreach ($this->articles as $article) : ?>
 <?php $imagesfive = unserialize($article->bild); ?>
-<div id="block6" class="parallax-container"  style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
+<div id="block6" class="post type-post status-publish format-standard hentry category-beautiful parallax-container"  style="background-image: url(/image/1920/1440/0/<?php echo $article->idart; ?>/<?php echo $article->mainimage; ?>); overflow: hidden; min-height:1000px; background-color:#efefe3; background-repeat:no-repeat;">
         <div class="story">
             <div class="float-left blockText bright" style="width: 500px;">									
         		<h1><?php echo $article->pagetitle; ?></h1>

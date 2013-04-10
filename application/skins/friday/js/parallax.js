@@ -61,7 +61,7 @@ $(document).ready(function() { //when the document is ready...
 	    	if($(this).hasClass("inview"))
 	    	{
 	        	$(this).css({'backgroundPosition': newPos(50, windowHeight, pos, (parallaxHeight * (i+1)), 0.3)});
-	        	$(this).find('.bg1').css({'backgroundPosition': newPos(50, windowHeight, pos, (parallaxHeight * (i+1))+trainerBump, 0.6)});
+	        	$(this).find('.bg1').css({'backgroundPosition': newPos(150, windowHeight, pos, (parallaxHeight * (i+1))+trainerBump, 0.6)});
 	    	}
 		});
 		var scrollPosition = $("body").scrollTop();
