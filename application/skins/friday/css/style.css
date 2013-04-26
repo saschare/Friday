@@ -1287,11 +1287,12 @@ table#wp-calendar td a:hover{
 }
 
 .bg1 {
+	background-repeat:no-repeat;
 	background-position:right; 
-	width: 350px;
+	width: 500px;
 	background-size:100%;
-	overflow: hidden;
-	z-index: 10;
+	 overflow: hidden;
+	 z-index: 10;
 }
 
             #content .button, #sidebar .button, #footer .button, #searchsubmit { }
