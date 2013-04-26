@@ -64,24 +64,35 @@
 
 
         <script type="text/javascript">
+	        var nice = false;
+	        
             $(document).ready(function(){
 
             $('.fancybox').fancybox();
 
             function setTopMargin() {
-            var headerHeight = $('#headerBar').height();
-            $('body.home #container').css('margin-top',headerHeight);
+            	var headerHeight = $('#headerBar').height();
+            	$('body.home #container').css('margin-top',headerHeight);
             }
 
             var headerHeightNeg = 0 - $('#headerBar').height();
-            $('#nav').localScroll({offset: {left: 0, top: headerHeightNeg}});
-            $('#mainNav').localScroll({offset: {left: 0, top: headerHeightNeg}});
-            $('#logo').localScroll({offset: {left: 0, top: headerHeightNeg}});
+            	$('#nav').localScroll({offset: {left: 0, top: headerHeightNeg}});
+            	$('#mainNav').localScroll({offset: {left: 0, top: headerHeightNeg}});
+            	$('#logo').localScroll({offset: {left: 0, top: headerHeightNeg}});
 
-            $('.story .blockText').css('margin-top',storyBump);
-            setTopMargin();
+            	$('.story .blockText').css('margin-top',storyBump);
+            	setTopMargin();
 
             $(window).resize(function() { setTopMargin(); });
+            
+                nice = $("html").niceScroll();
+  
+                var obj = window;
+  
+                console.log(obj.length);
+                console.log("selector" in obj);
+                      
+            
             });
         </script>
         <!-- JS :: End -->
