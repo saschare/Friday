@@ -8,11 +8,11 @@
             <?php echo $article->content; ?>               
             <?php $images = unserialize($article->bild); ?>
         </div>
-        <div class="bg1" style="min-height:1000px; height:1000px; width: 400px;">
+        <div class="bg1" style="min-height:1000px; height:1000px; width: 370px;">
         	<?php if (!empty($images)) : ?>
         	<div class="box" style=""> 
 	        <?php foreach ($images as $image) : ?>
-	            	<div style="padding: 10px 10px 10px 10px; background-color: #f3f3f3;"><img src="/image/350/300/1/<?php echo $article->idart; ?>/<?php echo $image; ?>" title="<?php echo $article->pagetitle; ?>"></div>
+	        <div style="padding: 10px 10px 10px 10px; background-color: #f3f3f3;"><img src="/image/350/300/1/<?php echo $article->idart; ?>/<?php echo $image; ?>" title="<?php echo $article->pagetitle; ?>"></div>
             <?php endforeach; ?>
             </div>
             <?php endif; ?>
